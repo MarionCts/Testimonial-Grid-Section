@@ -65,7 +65,7 @@ main{
     padding: clamp(73px, 15.5vw, 223px) clamp(35px, 11.32vw, 163px);
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, auto);
     grid-template-areas: 
     "one one two five"
     "three four four five"
@@ -213,7 +213,7 @@ blockquote p{
 @media screen and (min-width: 500px) and (max-width: 1024px) {
     main{
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(4, auto);
         grid-template-areas: 
         "one one"
         "two three"
