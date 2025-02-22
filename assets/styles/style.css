@@ -1,0 +1,246 @@
+/* RESET */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+/* GLOBAL VARIABLES */
+
+:root {
+  /* Colors */
+  --BG: hsl(300 5 96);
+  --Black: hsl(0 0 7);
+  --Dark-blue: hsl(219 29 14);
+  --White: hsl(0 0 100);
+  --Grey-100: hsl(214 17 92);
+  --Grey-200: hsl(0 0 81);
+  --Grey-400: hsl(224 10 45);
+  --Grey-500: hsl(217 19 35);
+  --Purple-50: hsl(260 100 95);
+  --Purple-300: hsl(264 82 70);
+  --Purple-500: hsl(263 55 52);
+
+  /* Font */
+  --Barlow: "Barlow Semi Condensed", serif;
+
+  /* Font weights*/
+  --Semibold: 600;
+  --Medium: 500;
+
+  /* Font sizes */
+  --fs-20: 2rem;
+  --fs-13: 1.3rem;
+  --fs-11: 1.1rem;
+
+  /* Line heights */
+  --lh-140: 140%;
+  --lh-120: 120%;
+  --lh-110: 110%;
+
+  /* Spacings */
+  --spacing-500: 4rem;
+  --spacing-400: 3.2rem;
+  --spacing-300: 2.4rem;
+  --spacing-200: 1.6rem;
+  --spacing-100: 0.8rem;
+  --spacing-50: 0.4rem;
+}
+
+/* BACKGROUND */
+body{
+    background-color: var(--BG);
+    font-family: var(--Barlow);
+    display: flex;
+    min-height: 100vh;
+}
+
+main{
+    padding: clamp(73px, 15.5vw, 223px) clamp(35px, 11.32vw, 163px);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-areas: 
+    "one one two five"
+    "three four four five"
+    ;
+    gap: 3.2rem;
+}
+
+/* ARTICLE CARDS */
+.card{
+    position: relative;
+    border-radius: 0.8rem;
+    box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 24.74);
+    padding: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.heading{
+    display: flex;
+}
+
+.heading img{
+    max-height: 28px;
+    border-radius: 100%;
+    margin-inline-end: var(--spacing-200);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2, h3{
+    font-weight: var(--Medium);
+    line-height: var(--lh-110);
+}
+
+
+h2{
+    font-size: var(--fs-13);
+    margin-block-end: var(--spacing-50);
+}
+
+h3{
+    font-size: var(--fs-11);
+}
+
+p{
+    font-weight: var(--Semibold);
+    font-size: var(--fs-20);
+    line-height: var(--lh-120);
+}
+
+blockquote p{
+    font-weight: var(--Medium);
+    font-size: var(--fs-13);
+    line-height: var(--lh-140);
+}
+
+/* INDIVIDUAL CARDS FEATURES */
+
+/* CARD 1 */
+.one{
+    grid-area: one;
+}
+
+.purple{
+    z-index: 100;
+    background-color: var(--Purple-500);
+    color: var(--White);
+}
+
+.purple blockquote p{
+    color: var(--Purple-50);
+}
+
+.symbol{
+    z-index: -1;
+    position: absolute;
+    font-size: 100rem;
+    color: var(--Purple-300);
+    top: 0;
+    right: 11.2%;
+}
+
+/* CARD 2 */
+.two{
+    grid-area: two;
+}
+
+.grey{
+    background-color: var(--Grey-500);
+    color: var(--White);
+}
+
+/* CARD 3 */
+.three{
+    grid-area: three;
+
+}
+
+.white{
+    background-color: var(--White);
+    color: var(--Grey-500);
+}
+
+/* CARD 4 */
+.four{
+    grid-area: four;
+}
+
+.dark-blue{
+    background-color: var(--Dark-blue);
+    color: var(--Grey-200);
+}
+
+.dark-blue blockquote p{
+    color: var(--Grey-100);
+}
+
+/* CARD 5 */
+.five{
+    grid-area: five;
+}
+
+/* COMMON FEATURES */
+.one .heading img, .four .heading img{
+    border: 2px solid hsl(264 82 70);
+}
+
+.white blockquote p, .white h3{
+    color: var(--Grey-400);
+}
+
+.dark-blue h2, .dark-blue h3{
+    color: var(--White);
+}
+
+.grey blockquote p, .grey h3{
+    color: var(--Grey-100);
+}
+
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+    main{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        grid-template-areas: 
+        "one one"
+        "two three"
+        "four four"
+        "five five"
+        ;
+    }
+
+    .symbol{
+        right: 25.35%;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    main{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: 
+        "one"
+        "two"
+        "three"
+        "four"
+        "five"
+        ;
+    }
+
+    .symbol{
+        display: none;
+    }
+}
